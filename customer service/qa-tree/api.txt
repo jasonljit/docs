@@ -1,0 +1,21 @@
+GET /api/qa-nodes/:QANodeId
+
+POST /api/qa-nodes
+	req.body = {
+		title,
+		parentId,
+		type,
+	}
+
+PATCH /api/qa-nodes/:QANodeId
+	req.body = {
+		title,
+		description,
+		type,
+		content,
+	}
+
+DEL /api/qa-nodes/:QANodeId
+	req.body = {
+		parentId,
+	}
