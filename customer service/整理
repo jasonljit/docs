@@ -1,0 +1,22 @@
+主畫面：/c-preinit & /client-preinit
+聊天室：/c & /client
+
+req & socket 底下帶的東西
+
+client
+	req.session.client = {
+		clientId,			// 進到 /c-preinit or /client-preinit, validate 時附上去的
+		conversationId,		// 進到 /c or /client 時附上去的，client 結束對話，回到 主畫面 時會拿掉
+		userProfile,		// 透過 /client-preinit 連的, 在 validate 時附上的
+	}
+
+	req.userProfile			// 透過 /client-preinit 連的, 在 validate 時附上的
+
+
+	socket.data = {			// 'set-client-data-on-line' 時 附上的
+		clientId,
+		displayName,
+		conversationId,
+		role,
+		csId,				// 新登入的使用者，csId 會是 undefined，被接聽過且重整頁面的使用者才會有值
+	}

@@ -1,0 +1,49 @@
+{
+    "loginStats": [
+        {
+            "day": "2018/12/12",
+            "counts": [
+                {
+                    "source": "lf",
+                    "deviceType": "mobile",
+                    "count": 13
+                },
+                {
+                    "source": "lf",
+                    "deviceType": "pc",
+                    "count": 1
+                },
+                {
+                    "source": "ljit",
+                    "deviceType": "mobile",
+                    "count": 4
+                },
+                {
+                    "source": "ljit",
+                    "deviceType": "pc",
+                    "count": 9
+                }
+            ]
+        },
+        {
+            "day": "2018/12/11",
+            "counts": [
+                {
+                    "source": "lf",
+                    "deviceType": "mobile",
+                    "count": 15
+                },
+                {
+                    "source": "lf",
+                    "deviceType": "pc",
+                    "count": 56
+                },
+                {
+                    "source": "ljit",
+                    "deviceType": "mobile",
+                    "count": 43
+                }
+            ]
+        }
+    ]
+}

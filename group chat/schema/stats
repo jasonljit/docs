@@ -1,0 +1,42 @@
+conversation-reply-stats
+
+{
+	date,
+	count: {
+		lf: 10,
+		qq: 20,
+	}
+}
+
+ttl 30天
+worker
+
+===========================
+
+user-daily-login-log
+
+{
+	date,
+	source,
+	username,
+}
+
+ttl 3天
+emitter
+===========================
+
+login_stats
+
+{
+	date,
+	countOfSources: {
+		lf: 10,
+		qq: 20,
+	},
+	countOfDevices: {
+		mobile: 10,
+		pc: 20,
+	}
+}
+
+ttl 30天

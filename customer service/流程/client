@@ -1,0 +1,54 @@
+// 沒帶 userProfile 的登入
+
+GET ('/')
+	user 輸入 username，放在query string，導向 '/c-preinit'
+
+GET ('/c-preinit?clientId=username_TIMESTAMP')
+	client 相關資訊會存在 req.session.client = { clientId, conversationId } (之前連過的客戶才會有conversationId)
+	如果客戶之前連過，且之前進入的 conversation 還開著，則 redirect('/c')
+	新客戶 render 完，頁面上的按鈕也是導向 '/c'
+
+GET ('/c')
+	連過的客戶：把之前的 conversation 撈出來
+	新客戶：建立新 conversation，產生 tag 列表 (conversation reply)，
+	並且 io.to(conversationId).emit("bot-message", { conversationReply })
+	🤔 這時候客戶還沒連上 socket，為何要 io.emit
+	🤔 為何 bot-message 都是用 global.SOCKET_IO
+	🤔 為何要 delete conversation.userProfile
+	render('client.pug', { conversation, entranceURL })
+
+	client side
+		connect socket
+		socket.emit('client-init')
+
+
+// 帶 userProfile 的登入
+
+GET ('/client-preinit?clientId&host&userProfile&')
+	client 自帶 userProfile 的登入方式
+	req.userProfile
+	req.session.client = { clientId, userProfile }
+	如果客戶之前連過，且之前進入的 conversation 還開著，則 redirect('/client')
+	聊天室進入點：/client
+
+GET ('/client')
+	用帶進來的 userProfile 更新已存在的 conversaion 或 建立新的
+	res.render("pages/client.pug", { conversation, entranceUrl })
+
+	client side
+		connect socket
+		socket.emit('client-init')
+
+
+socket.on('client-init', (socket, data))
+	data = {
+		user,
+		conversation,
+	}
+	emitter.emit('client-init')
+		join conversation
+		撈 conversationReply, tags, tagCategories, conversation
+	emitter.emit('client-online')
+		set conversation status to 'client-online'
+	emitter.emit('set-client-data-on-line')
+		在 socket.data 下 塞一堆東西
