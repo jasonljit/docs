@@ -1,9 +1,10 @@
-tree = {
+QATree = {
 	_id,
-	rootNodeId,
-	title: 'QA智能客服',		// 顯示給 client 看
-	name: 'QA',				// query 用
+	rootQANodeId,
+	title: '智能客服',
+	name: 'chat-bot',
 	status: {
+		type: String,
 		enum: [
 			'published',		// 使用中的版本
 			'editing',			// 編輯中的版本
