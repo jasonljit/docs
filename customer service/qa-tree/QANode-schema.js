@@ -22,7 +22,7 @@ QANode = {
 
 	content: {
 		fields: [{
-			type: 'textarea',
+			type: 'text',
 			content: '...',
 		}, {
 			type: 'image',
