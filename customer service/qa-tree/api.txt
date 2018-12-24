@@ -9,13 +9,36 @@ POST /api/qa-nodes
 
 PATCH /api/qa-nodes/:QANodeId
 	req.body = {
-		title,
-		description,
-		type,
-		content,
+		attributes: {
+			title,			// optional
+			description,	// optional
+			type,			// required *
+			childIds,		// optional
+			content: {		// optional
+				// answer
+				fields: [{
+					type: 'text',
+					content: '...',
+				}, {
+					type: 'image',
+					url: '...',
+				}],
+
+				// form
+				inputs: [{
+					type: 'text',
+					title: '...',
+				}, {
+					type: 'radio',
+					title: 'Gender',
+					values: ['Male', 'Female'],
+				}],
+				tagId: '...',
+
+				// action
+				actoin: 'contact-cs',
+			},
+		}
 	}
 
 DEL /api/qa-nodes/:QANodeId
-	req.body = {
-		parentId,
-	}
