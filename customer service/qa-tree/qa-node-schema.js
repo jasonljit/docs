@@ -1,7 +1,7 @@
 // 選項
 QANode = {
 	_id,
-	title: 'root',
+	title: '',
 	description: '您的問題是？',
 	type: 'options',
 	childIds: [],					// 根節點不會有 parentId
