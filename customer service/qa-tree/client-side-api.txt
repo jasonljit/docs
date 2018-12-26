@@ -12,6 +12,7 @@ socket.emit('client-select-qa-option', {
 socket.emit('client-submit-qa-form', {
 	conversationId,
 	conversationReplyId,
+	tagId,
 })
 
 // 上傳圖片
