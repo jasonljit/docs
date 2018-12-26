@@ -3,7 +3,6 @@ conversationReply = {
 	type: 'qa-options',
 	content: {
 		status: 'new',
-		description: '您的問題是？',
 		options: [{
 			QANodeId,
 			title: '角色問題',
