@@ -2,7 +2,7 @@
 conversationReply = {
 	type: 'qa-options',
 	content: {
-		isSubmitted: false,
+		status: 'new',
 		description: '您的問題是？',
 		options: [{
 			QANodeId,
@@ -16,17 +16,23 @@ conversationReply = {
 
 // 答案
 conversationReply = {
-	type: 'text'
-}
-conversationReply = {
-	type: 'image'
+	type: 'qa-answer',
+	contnet: {
+		fields: [{
+			type: 'text',
+			content: '...',
+		}, {
+			type: 'image',
+			url: 'IMAGE_PATH',
+		}],
+	}
 }
 
 // 表單
 conversationReply = {
 	type: 'qa-form',
 	content: {
-		isSubmitted: false,
+		status: 'submitted',
 		tagId,
 		inputs: [{
 			type: 'text',
