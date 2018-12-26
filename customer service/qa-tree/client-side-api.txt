@@ -1,0 +1,22 @@
+// 進入點
+GET /smart-reply
+
+// 點 qa-options 的選項
+socket.emit('client-select-qa-option', {
+	conversationId,
+	conversationReplyId,
+	QANodeId,
+})
+
+// 提交 qa-form
+socket.emit('client-submit-qa-form', {
+	conversationId,
+	conversationReplyId,
+})
+
+// 上傳圖片
+POST /api/images
+
+	response: {
+		url: IMAGE_PATH,
+	}
