@@ -63,7 +63,7 @@ GET /api/qa-trees
 
 	res = QATree
 
-PATCH /api/qa-trees/:treeId/opening-and-ending-message
+PATCH /api/qa-trees/:QATreeId/opening-and-ending-message
 	req.body = {
 		openingMessage,
 		endingMessage,
