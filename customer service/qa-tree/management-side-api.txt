@@ -6,8 +6,9 @@ GET /api/qa-nodes/:QANodeId
 POST /api/qa-nodes
 	req.body = {
 		title,
-		parentId,
 		type,
+		QATreeId,
+		parentId,
 	}
 
 	res = QANode
