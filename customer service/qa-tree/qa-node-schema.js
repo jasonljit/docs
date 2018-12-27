@@ -4,6 +4,7 @@ QANode = {
 	title: '',
 	description: '您的問題是？',
 	type: 'options',
+	treeId,
 	childIds: [],					// 根節點不會有 parentId
 	status: 'active',
 
@@ -16,6 +17,7 @@ QANode = {
 	title: '帳戶問題',
 	description: '',
 	type: 'answer',
+	treeId,
 	parentId,
 	childIds: [],
 	status: 'active',
@@ -37,6 +39,7 @@ QANode = {
 	title: '充值問題',
 	description: '',
 	type: 'form',
+	treeId,
 	parentId,
 	childIds: [],
 	status: 'active',
@@ -72,6 +75,7 @@ QANode = {
 	title: '聯絡人工客服',
 	description: '',
 	type: 'action',
+	treeId,
 	parentId,
 	childIds: [],
 	status: 'active',
