@@ -1,4 +1,7 @@
+// qa-node
+
 GET /api/qa-nodes/:QANodeId
+	res = QANode
 
 POST /api/qa-nodes
 	req.body = {
@@ -6,6 +9,8 @@ POST /api/qa-nodes
 		parentId,
 		type,
 	}
+
+	res = QANode
 
 PATCH /api/qa-nodes/:QANodeId
 	req.body = {
@@ -41,4 +46,26 @@ PATCH /api/qa-nodes/:QANodeId
 		}
 	}
 
+	res = QANode
+
 DEL /api/qa-nodes/:QANodeId
+	no response
+
+
+// qa-tree
+
+GET /api/qa-trees
+	req.query = {
+		name: 'chat-bot',
+		status: 'editing',
+	}
+
+	res = QATree
+
+PATCH /api/qa-trees/:treeId/opening-and-ending-message
+	req.body = {
+		openingMessage,
+		endingMessage,
+	}
+
+	res = QATree
